@@ -1,0 +1,78 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ffe6e6;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.heart {
+    font-size: 10vw;
+    color: red;
+    transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+}
+.explode {
+    transform: scale(5);
+    opacity: 0;
+}
+p {
+    font-size: 3vw;
+    margin: 10px 0;
+    max-width: 80%;
+    transition: opacity 0.5s;
+}
+.hidden {
+    opacity: 0;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 250px;
+    position: relative;
+}
+button {
+    font-size: 2.5vw;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s, font-size 0.3s;
+    position: absolute;
+}
+.green {
+    background-color: green;
+    color: white;
+    position: static;
+}
+.red {
+    background-color: red;
+    color: white;
+}
+.final-text {
+    font-size: 4vw;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+@media (max-width: 600px) {
+    .heart {
+        font-size: 15vw;
+    }
+    p {
+        font-size: 5vw;
+    }
+    button {
+        font-size: 4vw;
+    }
+    .final-text {
+        font-size: 6vw;
+    }
+}

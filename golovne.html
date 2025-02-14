@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валентинка</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="heart" id="heart">❤️</div>
+    <p id="text">Вітаю з Днем Святого Валентина, братва!</p>
+    <div class="buttons">
+        <button class="green" id="green-btn">І тебе тоже ❤️</button>
+        <button class="red" id="red-btn">Іди геть</button>
+    </div>
+    <p class="final-text" id="final-text">Дай 100 грівень</p>
+
+    <script>
+        let clickCount = 0;
+        const redBtn = document.getElementById("red-btn");
+        const greenBtn = document.getElementById("green-btn");
+        const heart = document.getElementById("heart");
+        const text = document.getElementById("text");
+        const finalText = document.getElementById("final-text");
+        
+        redBtn.addEventListener("click", function() {
+            clickCount++;
+            if (clickCount >= 4) {
+                redBtn.style.display = "none";
+            } else {
+                redBtn.style.fontSize = "1.5vw";
+                redBtn.style.padding = "5px";
+                let maxX = window.innerWidth - redBtn.clientWidth;
+                let maxY = window.innerHeight - redBtn.clientHeight;
+                let randomX = Math.random() * maxX;
+                let randomY = Math.random() * maxY;
+                redBtn.style.position = "absolute";
+                redBtn.style.left = `${randomX}px`;
+                redBtn.style.top = `${randomY}px`;
+            }
+            greenBtn.style.fontSize = "3.5vw";
+            greenBtn.style.padding = "15px";
+        });
+
+        greenBtn.addEventListener("click", function() {
+            text.classList.add("hidden");
+            greenBtn.style.display = "none";
+            heart.classList.add("explode");
+            setTimeout(() => {
+                finalText.style.opacity = "1";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
